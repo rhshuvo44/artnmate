@@ -1,12 +1,12 @@
 import Header from "@/component/layout/Header";
 import type { Metadata } from "next";
-// import CustomCursor from "@/app/ui/CustomCursor";
-// import Footer from "@/app/ui/Footer";
+
 // import "swiper/css";
 // import "swiper/css/pagination";
 import "@/scss/index.scss";
 import { Poppins, Open_Sans } from "next/font/google";
 import CustomCursor from "@/component/ui/CustomCursor";
+import Footer from "@/component/layout/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,7 +36,7 @@ export default function RootLayout({
         <Header variant="default" />
         <CustomCursor />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import ContactInfoWidget from "../Widget/ContactInfoWidget";
-import Newsletter from "../Widget/Newsletter";
-import SocialWidget from "../Widget/SocialWidget";
 import Div from "../ui/Div";
 
 interface HeaderProps {
@@ -163,7 +161,7 @@ export default function Header({ variant }: HeaderProps) {
             <ContactInfoWidget title="Contact Us" withIcon />
           </Div>
 
-          <Div className="cs-side_header_box">
+          {/* <Div className="cs-side_header_box">
             <Newsletter
               title="Subscribe"
               subtitle="At vero eos et accusamus et iusto odio as part dignissimos ducimus qui blandit."
@@ -173,7 +171,7 @@ export default function Header({ variant }: HeaderProps) {
 
           <Div className="cs-side_header_box">
             <SocialWidget />
-          </Div>
+          </Div> */}
         </Div>
       </Div>
     </>
