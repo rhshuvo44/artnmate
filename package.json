@@ -1,5 +1,6 @@
 {
   "name": "artnmate",
+  "description": "Artnmate is a creative digital agency specializing in Next.js, UI/UX, and modern web solutions.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,9 +10,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.2",
+    "bootstrap": "^5.3.8",
     "next": "16.1.4",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@types/node": "^20",
