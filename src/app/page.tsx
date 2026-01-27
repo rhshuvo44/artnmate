@@ -3,6 +3,7 @@ import Hero from "@/component/home/Hero";
 import PortfolioSlider from "@/component/home/PortfolioSlider";
 import ServiceSection from "@/component/home/ServiceSection";
 import TimelineSlider from "@/component/home/TimelineSlider";
+import VideoModal from "@/component/home/VideoModal";
 import Div from "@/component/ui/Div";
 import SectionHeading from "@/component/ui/SectionHeading";
 import Spacing from "@/component/ui/Spacing";
@@ -74,6 +75,21 @@ export default function Home() {
         </Div>
       </Div>
       {/* End Awards Section */}
+
+      {/* Start Video Block Section */}
+      <Spacing lg="130" md="70" />
+      <Div className="container">
+        <h2 className="cs-font_50 cs-m0 text-center cs-line_height_4">
+          Our agile process is ability to adapt and respond to change. Agile
+          organizations view change as an opportunity, not a threat.
+        </h2>
+        <Spacing lg="70" md="70" />
+        <VideoModal
+          videoSrc="https://www.youtube.com/watch?v=VcaAVWtP48A"
+          bgUrl="/images/video_bg.jpeg"
+        />
+      </Div>
+      {/* End Video Block Section */}
     </>
   );
 }
