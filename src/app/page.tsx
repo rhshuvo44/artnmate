@@ -2,6 +2,7 @@ import FunFact from "@/component/home/FunFact";
 import Hero from "@/component/home/Hero";
 import PortfolioSlider from "@/component/home/PortfolioSlider";
 import ServiceSection from "@/component/home/ServiceSection";
+import TimelineSlider from "@/component/home/TimelineSlider";
 import Div from "@/component/ui/Div";
 import SectionHeading from "@/component/ui/SectionHeading";
 import Spacing from "@/component/ui/Spacing";
@@ -36,7 +37,7 @@ export default function Home() {
       <ServiceSection />
       {/* End Service Section */}
 
-{/* Start Portfolio Section */}
+      {/* Start Portfolio Section */}
       <Spacing lg="150" md="50" />
       <Div>
         <Div className="container">
@@ -50,7 +51,29 @@ export default function Home() {
         <PortfolioSlider data={homeData?.portfolioData} />
       </Div>
       {/* End Portfolio Section */}
-
+      {/* Start Awards Section */}
+      <Spacing lg="150" md="80" />
+      <Div className="cs-shape_wrap_2">
+        <Div className="cs-shape_2">
+          <Div />
+        </Div>
+        <Div className="container">
+          <Div className="row">
+            <Div className="col-xl-4">
+              <SectionHeading
+                title="We get multiple awards"
+                subtitle="Our Awards"
+                variant="cs-style1"
+              />
+              <Spacing lg="90" md="45" />
+            </Div>
+            <Div className="col-xl-7 offset-xl-1">
+              <TimelineSlider />
+            </Div>
+          </Div>
+        </Div>
+      </Div>
+      {/* End Awards Section */}
     </>
   );
 }
