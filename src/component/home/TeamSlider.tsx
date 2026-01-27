@@ -1,0 +1,152 @@
+"use client";
+import { Icon } from "@iconify/react";
+import dynamic from "next/dynamic";
+import Div from "../ui/Div";
+import Team from "./Team";
+const Slider = dynamic(() => import("react-slick"), {
+  ssr: false,
+});
+
+const teamData = [
+  {
+    memberImage: "/images/member_1.jpeg",
+    memberName: "Melon Bulgery",
+    memberDesignation: "Product Designer",
+    memberSocial: {
+      linkedin: "/",
+      twitter: "/",
+      youtube: "/",
+      facebook: "/",
+    },
+  },
+  {
+    memberImage: "/images/member_2.jpeg",
+    memberName: "Olinaz Fushi",
+    memberDesignation: "Product Designer",
+    memberSocial: {
+      linkedin: "/",
+      twitter: "/",
+      youtube: "/",
+      facebook: "/",
+    },
+  },
+  {
+    memberImage: "/images/member_3.jpeg",
+    memberName: "David Elone",
+    memberDesignation: "React Developer",
+    memberSocial: {
+      linkedin: "/",
+      twitter: "/",
+      youtube: "/",
+      facebook: "/",
+    },
+  },
+  {
+    memberImage: "/images/member_4.jpeg",
+    memberName: "Melina Opole",
+    memberDesignation: "WP Developer",
+    memberSocial: {
+      linkedin: "/",
+      twitter: "/",
+      youtube: "/",
+      facebook: "/",
+    },
+  },
+  {
+    memberImage: "/images/member_1.jpeg",
+    memberName: "Melon Bulgery",
+    memberDesignation: "Product Designer",
+    memberSocial: {
+      linkedin: "/",
+      twitter: "/",
+      youtube: "/",
+      facebook: "/",
+    },
+  },
+];
+
+interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
+  currentSlide: number;
+  slideCount: number;
+}
+
+const SlickArrowLeft = ({ currentSlide, ...props }: SlickArrowProps) => (
+  <div
+    {...props}
+    className={
+      "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+    }
+    aria-hidden="true"
+    aria-disabled={currentSlide === 0 ? true : false}
+  >
+    <Icon icon="bi:arrow-left" />
+  </div>
+);
+
+const SlickArrowRight = ({ currentSlide, slideCount, ...props }: SlickArrowProps) => (
+  <div
+    {...props}
+    className={
+      "slick-next slick-arrow" +
+      (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+    }
+    aria-hidden="true"
+    aria-disabled={currentSlide === slideCount - 1 ? true : false}
+  >
+    <Icon icon="bi:arrow-right" />
+  </div>
+);
+
+export default function TeamSlider() {
+  /** Team Member Data **/
+
+  /** Slider Settings **/
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    prevArrow: <SlickArrowLeft currentSlide={0} slideCount={0} />, // dummy values, will be overridden by react-slick
+    nextArrow: <SlickArrowRight currentSlide={0} slideCount={0} />,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
+  return (
+    <Slider {...settings} className="cs-gap-24 cs-arrow_style2">
+      {teamData.map((item, index) => (
+        <Div key={index}>
+          <Team
+            memberImage={item.memberImage}
+            memberName={item.memberName}
+            memberDesignation={item.memberDesignation}
+            memberSocial={item.memberSocial}
+          />
+        </Div>
+      ))}
+    </Slider>
+  );
+}

@@ -2,6 +2,7 @@ import FunFact from "@/component/home/FunFact";
 import Hero from "@/component/home/Hero";
 import PortfolioSlider from "@/component/home/PortfolioSlider";
 import ServiceSection from "@/component/home/ServiceSection";
+import TeamSlider from "@/component/home/TeamSlider";
 import TimelineSlider from "@/component/home/TimelineSlider";
 import VideoModal from "@/component/home/VideoModal";
 import Div from "@/component/ui/Div";
@@ -90,6 +91,20 @@ export default function Home() {
         />
       </Div>
       {/* End Video Block Section */}
+
+      {/* Start Team Section */}
+      <Spacing lg="145" md="80" />
+      <Div className="container">
+        <SectionHeading
+          title="Awesome team <br/>members"
+          subtitle="Our Team"
+          variant="cs-style1"
+        />
+        <Spacing lg="85" md="45" />
+        <TeamSlider />
+      </Div>
+      <Spacing lg="150" md="80" />
+      {/* End Team Section */}
     </>
   );
 }
