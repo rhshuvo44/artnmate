@@ -1,6 +1,8 @@
 import Header from "@/component/layout/Header";
 import type { Metadata } from "next";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import "swiper/css";
 // import "swiper/css/pagination";
 import "@/scss/index.scss";

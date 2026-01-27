@@ -1,6 +1,10 @@
 import FunFact from "@/component/home/FunFact";
 import Hero from "@/component/home/Hero";
+import PortfolioSlider from "@/component/home/PortfolioSlider";
 import ServiceSection from "@/component/home/ServiceSection";
+import Div from "@/component/ui/Div";
+import SectionHeading from "@/component/ui/SectionHeading";
+import Spacing from "@/component/ui/Spacing";
 import homeData from "@/DB/home.json";
 export default function Home() {
   return (
@@ -28,69 +32,25 @@ export default function Home() {
       </div>
       {/* End FunFact Section */}
       {/* Start Service Section */}
-      {/* <Spacing lg="150" md="80" />
-      <Div id="service">
-        <Div className="container">
-          <Div className="row">
-            <Div className="col-xl-4">
-              <SectionHeading
-                title="Services we can help you with"
-                subtitle="What Can We Do"
-                btnText="See All Services"
-                btnLink="/service"
-              />
-              <Spacing lg="90" md="45" />
-            </Div>
-            <Div className="col-xl-8">
-              <Div className="row">
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
-                  <Card
-                    title="UI/UX design"
-                    link="/service/service-details"
-                    src="/images/service_1.jpeg"
-                    alt="Service"
-                  />
-                  <Spacing lg="0" md="30" />
-                </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
-                  <Card
-                    title="React.js Development"
-                    link="/service/service-details"
-                    src="/images/service_2.jpeg"
-                    alt="Service"
-                  />
-                  <Spacing lg="0" md="30" />
-                </Div>
-                <Div className="col-lg-3 col-sm-6">
-                  <Card
-                    title="Digital Marketing"
-                    link="/service/service-details"
-                    src="/images/service_3.jpeg"
-                    alt="Service"
-                  />
-                  <Spacing lg="0" md="30" />
-                </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-                <Div className="col-lg-3 col-sm-6">
-                  <Card
-                    title="Technology"
-                    link="/service/service-details"
-                    src="/images/service_4.jpeg"
-                    alt="Service"
-                  />
-                  <Spacing lg="0" md="30" />
-                </Div>
-                <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
-              </Div>
-            </Div>
-          </Div>
-        </Div>
-      </Div> */}
 
       <ServiceSection />
       {/* End Service Section */}
+
+{/* Start Portfolio Section */}
+      <Spacing lg="150" md="50" />
+      <Div>
+        <Div className="container">
+          <SectionHeading
+            title="Portfolio to explore"
+            subtitle="Latest Projects"
+            variant="cs-style1 text-center"
+          />
+          <Spacing lg="90" md="45" />
+        </Div>
+        <PortfolioSlider data={homeData?.portfolioData} />
+      </Div>
+      {/* End Portfolio Section */}
+
     </>
   );
 }

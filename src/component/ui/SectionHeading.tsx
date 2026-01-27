@@ -13,8 +13,8 @@ export default function SectionHeading({
 }: {
   title: string;
   subtitle: string;
-  btnLink: string;
-  btnText: string;
+  btnLink?: string;
+  btnText?: string;
   variant?: string;
   children?: React.ReactNode;
 }) {
@@ -32,7 +32,7 @@ export default function SectionHeading({
       {btnText && (
         <>
           <Spacing lg="45" md="20" />
-          <Button btnLink={btnLink} btnText={btnText} />
+          <Button btnLink={btnLink || ""} btnText={btnText} />
         </>
       )}
     </Div>
