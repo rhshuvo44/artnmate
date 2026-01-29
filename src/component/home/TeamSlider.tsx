@@ -66,8 +66,8 @@ const teamData = [
 ];
 
 interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
-  currentSlide: number;
-  slideCount: number;
+  currentSlide?: number;
+  slideCount?: number;
 }
 
 const SlickArrowLeft = ({ currentSlide, ...props }: SlickArrowProps) => (
@@ -88,10 +88,10 @@ const SlickArrowRight = ({ currentSlide, slideCount, ...props }: SlickArrowProps
     {...props}
     className={
       "slick-next slick-arrow" +
-      (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+      (currentSlide === (slideCount ?? 0) - 1 ? " slick-disabled" : "")
     }
     aria-hidden="true"
-    aria-disabled={currentSlide === slideCount - 1 ? true : false}
+    aria-disabled={currentSlide === (slideCount ?? 0) - 1 ? true : false}
   >
     <Icon icon="bi:arrow-right" />
   </div>

@@ -3,6 +3,7 @@ import Hero from "@/component/home/Hero";
 import PortfolioSlider from "@/component/home/PortfolioSlider";
 import ServiceSection from "@/component/home/ServiceSection";
 import TeamSlider from "@/component/home/TeamSlider";
+import TestimonialSlider from "@/component/home/TestimonialSlider";
 import TimelineSlider from "@/component/home/TimelineSlider";
 import VideoModal from "@/component/home/VideoModal";
 import Div from "@/component/ui/Div";
@@ -105,6 +106,9 @@ export default function Home() {
       </Div>
       <Spacing lg="150" md="80" />
       {/* End Team Section */}
+      {/* Start Testimonial Section */}
+      <TestimonialSlider />
+      {/* End Testimonial Section */}
     </>
   );
 }
