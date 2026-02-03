@@ -3,10 +3,8 @@ import Div from "@/component/ui/Div";
 import SectionHeading from "@/component/ui/SectionHeading";
 import Spacing from "@/component/ui/Spacing";
 import Image from "next/image";
-// import aboutImg from "./images/about_img_1.jpeg";
-// import aboutImg2 from "./images/about_img_2.jpeg";
-// import aboutImg3 from "./images/about_img_3.jpeg";
-// import aboutImg4 from './images/about_img_4.jpeg'
+import aboutData from "@/DB/about.json";
+import FunFact from "@/component/home/FunFact";
 const About = () => {
   return (
     <>
@@ -73,6 +71,15 @@ const About = () => {
       </Div>
       <Spacing lg="75" md="55" />
       {/* End About Section */}
+      {/* Start Fun Fact Section */}
+      <Div className="container">
+        <FunFact
+          title="Our fun fact"
+          subtitle="Sed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+          data={aboutData.funfaceData}
+        />
+      </Div>
+      {/* End Fun Fact Section */}
     </>
   );
 };
