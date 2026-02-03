@@ -6,6 +6,7 @@ import Image from "next/image";
 import aboutData from "@/DB/about.json";
 import FunFact from "@/component/home/FunFact";
 import TeamSlider from "@/component/home/TeamSlider";
+import Cta from "@/component/home/Cta";
 const About = () => {
   return (
     <>
@@ -139,6 +140,18 @@ const About = () => {
         <TeamSlider />
       </Div>
       {/* End Team Section */}
+  {/* Start CTA Section */}
+      <Spacing lg="150" md="80" />
+      <Div className="container">
+        <Cta
+          title="Let’s disscuse make <br />something <i>cool</i> together"
+          btnText="Apply For Meeting"
+          btnLink="/contact"
+          bgSrc="/images/cta_bg.jpeg"
+        />
+      </Div>
+      {/* End CTA Section */}
+
     </>
   );
 };
