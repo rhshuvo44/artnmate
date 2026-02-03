@@ -1,5 +1,7 @@
 import FunFact from "@/component/home/FunFact";
 import Hero from "@/component/home/Hero";
+import LogoList from "@/component/home/LogoList";
+import MovingText from "@/component/home/MovingText";
 import PortfolioSlider from "@/component/home/PortfolioSlider";
 import PostSlider from "@/component/home/PostSlider";
 import ServiceSection from "@/component/home/ServiceSection";
@@ -135,6 +137,17 @@ export default function Home() {
         </Div>
       </Div>
       {/* End Blog Section */}
+      {/* Start MovingText Section */}
+      <Spacing lg="125" md="70" />
+      <MovingText text="Our reputed world wide partners" />
+      <Spacing lg="105" md="70" />
+      {/* End MovingText Section */}
+       {/* Start LogoList Section */}
+      <Div className="container">
+        <LogoList />
+      </Div>
+      <Spacing lg="150" md="80" />
+      {/* End LogoList Section */}
     </>
   );
 }
