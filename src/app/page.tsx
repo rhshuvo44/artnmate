@@ -1,3 +1,4 @@
+import Cta from "@/component/home/Cta";
 import FunFact from "@/component/home/FunFact";
 import Hero from "@/component/home/Hero";
 import LogoList from "@/component/home/LogoList";
@@ -148,6 +149,16 @@ export default function Home() {
       </Div>
       <Spacing lg="150" md="80" />
       {/* End LogoList Section */}
+      {/* Start CTA Section */}
+      <Div className="container">
+        <Cta
+          title="Let’s disscuse make <br />something <i>cool</i> together"
+          btnText="Apply For Meeting"
+          btnLink="/contact"
+          bgSrc="/images/cta_bg.jpeg"
+        />
+      </Div>
+      {/* End CTA Section */}
     </>
   );
 }
