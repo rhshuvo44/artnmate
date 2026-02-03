@@ -7,44 +7,55 @@ import Div from "../ui/Div";
 import Spacing from "../ui/Spacing";
 import Testimonial from "./Testimonial";
 
+import type SlickSlider from "react-slick";
 const Slider = dynamic<any>(() => import("react-slick"), { ssr: false });
-
-interface ArrowProps {
-  currentSlide: number;
-  slideCount: number;
-  [key: string]: any;
+interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
+  currentSlide?: number;
+  slideCount?: number;
 }
 
-const SlickArrowLeft = ({ currentSlide, ...props }: ArrowProps) => (
-  <div
-    {...props}
-    className={
-      "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
-    }
-    aria-hidden="true"
-    aria-disabled={currentSlide === 0 ? true : false}
-  >
-    <Icon icon="bi:arrow-left" />
-  </div>
-);
+const SlickArrowLeft = ({
+  currentSlide,
+
+  style,
+  onClick,
+}: SlickArrowProps) => {
+  return (
+    <div
+      className={
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      style={style}
+      onClick={onClick}
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0}
+    >
+      <Icon icon="bi:arrow-left" />
+    </div>
+  );
+};
 
 const SlickArrowRight = ({
   currentSlide,
   slideCount,
-  ...props
-}: ArrowProps) => (
-  <div
-    {...props}
-    className={
-      "slick-next slick-arrow" +
-      (currentSlide === slideCount - 1 ? " slick-disabled" : "")
-    }
-    aria-hidden="true"
-    aria-disabled={currentSlide === slideCount - 1 ? true : false}
-  >
-    <Icon icon="bi:arrow-right" />
-  </div>
-);
+  style,
+  onClick,
+}: SlickArrowProps) => {
+  return (
+    <div
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === (slideCount ?? 0) - 1 ? " slick-disabled" : "")
+      }
+      style={style}
+      onClick={onClick}
+      aria-hidden="true"
+      aria-disabled={currentSlide === (slideCount ?? 0) - 1}
+    >
+      <Icon icon="bi:arrow-right" />
+    </div>
+  );
+};
 
 const testimonialData = [
   {
@@ -82,8 +93,8 @@ const testimonialData = [
 ];
 
 export default function TestimonialSlider() {
-  const [nav1, setNav1] = useState();
-  const [nav2, setNav2] = useState();
+  const [nav1, setNav1] = useState<SlickSlider | null>(null);
+  const [nav2, setNav2] = useState<SlickSlider | null>(null);
 
   return (
     <>
@@ -101,8 +112,10 @@ export default function TestimonialSlider() {
           <Div className="cs-testimonial_slider">
             <Div className="cs-testimonial_slider_left">
               <Slider
-                asNavFor={nav1}
-                ref={(slider2:any) => setNav2(slider2)}
+                asNavFor={nav1 ?? undefined}
+                ref={(slider: SlickSlider | null) => {
+                  if (slider) setNav2(slider);
+                }}
                 slidesToShow={3}
                 swipeToSlide={true}
                 focusOnSelect={true}
@@ -129,19 +142,9 @@ export default function TestimonialSlider() {
             <Div className="cs-testimonial_slider_right">
               <Slider
                 asNavFor={nav2}
-                ref={(slider1: any) => setNav1(slider1)}
-                prevArrow={
-                  <SlickArrowLeft
-                    currentSlide={0}
-                    slideCount={testimonialData.length}
-                  />
-                }
-                nextArrow={
-                  <SlickArrowRight
-                    currentSlide={0}
-                    slideCount={testimonialData.length}
-                  />
-                }
+                ref={(slider1: SlickSlider | null) => setNav1(slider1)}
+                prevArrow={<SlickArrowLeft />}
+                nextArrow={<SlickArrowRight />}
                 className="cs-arrow_style1"
               >
                 {testimonialData.map((item, index) => (

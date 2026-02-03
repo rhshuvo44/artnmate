@@ -70,32 +70,48 @@ interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
   slideCount?: number;
 }
 
-const SlickArrowLeft = ({ currentSlide, ...props }: SlickArrowProps) => (
-  <div
-    {...props}
-    className={
-      "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
-    }
-    aria-hidden="true"
-    aria-disabled={currentSlide === 0 ? true : false}
-  >
-    <Icon icon="bi:arrow-left" />
-  </div>
-);
+const SlickArrowLeft = ({
+  currentSlide,
 
-const SlickArrowRight = ({ currentSlide, slideCount, ...props }: SlickArrowProps) => (
-  <div
-    {...props}
-    className={
-      "slick-next slick-arrow" +
-      (currentSlide === (slideCount ?? 0) - 1 ? " slick-disabled" : "")
-    }
-    aria-hidden="true"
-    aria-disabled={currentSlide === (slideCount ?? 0) - 1 ? true : false}
-  >
-    <Icon icon="bi:arrow-right" />
-  </div>
-);
+  style,
+  onClick,
+}: SlickArrowProps) => {
+  return (
+    <div
+      className={
+        "slick-prev slick-arrow" + (currentSlide === 0 ? " slick-disabled" : "")
+      }
+      style={style}
+      onClick={onClick}
+      aria-hidden="true"
+      aria-disabled={currentSlide === 0}
+    >
+      <Icon icon="bi:arrow-left" />
+    </div>
+  );
+};
+
+const SlickArrowRight = ({
+  currentSlide,
+  slideCount,
+  style,
+  onClick,
+}: SlickArrowProps) => {
+  return (
+    <div
+      className={
+        "slick-next slick-arrow" +
+        (currentSlide === (slideCount ?? 0) - 1 ? " slick-disabled" : "")
+      }
+      style={style}
+      onClick={onClick}
+      aria-hidden="true"
+      aria-disabled={currentSlide === (slideCount ?? 0) - 1}
+    >
+      <Icon icon="bi:arrow-right" />
+    </div>
+  );
+};
 
 export default function TeamSlider() {
   /** Team Member Data **/
@@ -107,8 +123,8 @@ export default function TeamSlider() {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    prevArrow: <SlickArrowLeft currentSlide={0} slideCount={0} />, // dummy values, will be overridden by react-slick
-    nextArrow: <SlickArrowRight currentSlide={0} slideCount={0} />,
+    prevArrow: <SlickArrowLeft />,
+    nextArrow: <SlickArrowRight />,
     responsive: [
       {
         breakpoint: 1200,
