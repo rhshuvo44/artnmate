@@ -5,6 +5,7 @@ import Spacing from "@/component/ui/Spacing";
 import Image from "next/image";
 import aboutData from "@/DB/about.json";
 import FunFact from "@/component/home/FunFact";
+import TeamSlider from "@/component/home/TeamSlider";
 const About = () => {
   return (
     <>
@@ -126,6 +127,18 @@ const About = () => {
         </Div>
       </Div>
       {/* End Why Choose Section */}
+      {/* Start Team Section */}
+      <Spacing lg="145" md="80" />
+      <Div className="container">
+        <SectionHeading
+          title="Awesome team <br/>members"
+          subtitle="Our Team"
+          variant="cs-style1"
+        />
+        <Spacing lg="85" md="45" />
+        <TeamSlider />
+      </Div>
+      {/* End Team Section */}
     </>
   );
 };
