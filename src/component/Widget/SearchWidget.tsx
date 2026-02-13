@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react'
-import React from 'react'
 
 export default function SearchWidget({title}:{
     title:string

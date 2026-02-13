@@ -119,6 +119,7 @@ export default function TeamSlider() {
   /** Slider Settings **/
   const settings = {
     dots: false,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,

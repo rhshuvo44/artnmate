@@ -38,9 +38,9 @@ export default function Header({ variant }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const toggleMobileMenu = () => setMobileToggle((prev) => !prev);
-  const toggleSideHeader = () => setSideHeaderToggle((prev) => !prev);
-  const closeMobileMenu = () => setMobileToggle(false);
+  // const toggleMobileMenu = () => setMobileToggle((prev) => !prev);
+  // const toggleSideHeader = () => setSideHeaderToggle((prev) => !prev);
+  // const closeMobileMenu = () => setMobileToggle(false);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -69,12 +69,14 @@ export default function Header({ variant }: HeaderProps) {
                     className={`cs-nav_list ${
                       mobileToggle ? "cs-nav_active" : ""
                     }`}
+                    style={{ display: `${mobileToggle ? "block" : "none"}` }}
                   >
                     {navItems.map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}
-                          onClick={closeMobileMenu}
+                          onClick={() => setMobileToggle(false)}
+                          // onClick={closeMobileMenu}
                           className={isActive(item.href) ? "active" : ""}
                         >
                           {item.label}
@@ -83,25 +85,13 @@ export default function Header({ variant }: HeaderProps) {
                     ))}
                   </ul>
 
-                  {/* <button
-                    className={
-                      mobileToggle
-                        ? "cs-munu_toggle cs-toggle_active"
-                        : "cs-munu_toggle"
-                    }
-                    onClick={toggleMobileMenu}
-                    aria-label="Toggle menu"
-                  >
-                    <span />
-                  </button> */}
-
                   <span
                     className={
                       mobileToggle
                         ? "cs-munu_toggle cs-toggle_active"
                         : "cs-munu_toggle"
                     }
-                    onClick={toggleMobileMenu}
+                    onClick={() => setMobileToggle(!mobileToggle)}
                   >
                     <span></span>
                   </span>
@@ -112,7 +102,7 @@ export default function Header({ variant }: HeaderProps) {
                 <Div className="cs-toolbox">
                   <span
                     className="cs-icon_btn"
-                    onClick={toggleSideHeader}
+                    onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
                     aria-label="Toggle side header"
                   >
                     <span className="cs-icon_btn_in">
@@ -133,11 +123,14 @@ export default function Header({ variant }: HeaderProps) {
       <Div className={`cs-side_header ${sideHeaderToggle ? "active" : ""}`}>
         <button
           className="cs-close"
-          onClick={toggleSideHeader}
+          onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
           aria-label="Close side header"
         />
 
-        <Div className="cs-side_header_overlay" onClick={toggleSideHeader} />
+        <Div
+          className="cs-side_header_overlay"
+          onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
+        />
 
         <Div className="cs-side_header_in">
           <Div className="cs-side_header_shape" />

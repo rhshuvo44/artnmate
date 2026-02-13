@@ -109,6 +109,7 @@ export default function Home() {
         <TeamSlider />
       </Div>
       <Spacing lg="150" md="80" />
+
       {/* End Team Section */}
       {/* Start Testimonial Section */}
       <TestimonialSlider />
@@ -143,7 +144,7 @@ export default function Home() {
       <MovingText text="Our reputed world wide partners" />
       <Spacing lg="105" md="70" />
       {/* End MovingText Section */}
-       {/* Start LogoList Section */}
+      {/* Start LogoList Section */}
       <Div className="container">
         <LogoList />
       </Div>
