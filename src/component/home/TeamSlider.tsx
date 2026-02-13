@@ -1,5 +1,4 @@
 "use client";
-import { Icon } from "@iconify/react";
 import dynamic from "next/dynamic";
 import Div from "../ui/Div";
 import Team from "./Team";
@@ -70,12 +69,7 @@ interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
   slideCount?: number;
 }
 
-const SlickArrowLeft = ({
-  currentSlide,
-
-  style,
-  onClick,
-}: SlickArrowProps) => {
+const SlickArrowLeft = ({ currentSlide, style, onClick }: SlickArrowProps) => {
   return (
     <div
       className={
@@ -86,7 +80,7 @@ const SlickArrowLeft = ({
       aria-hidden="true"
       aria-disabled={currentSlide === 0}
     >
-      <Icon icon="bi:arrow-left" />
+      {/* <Icon icon="bi:arrow-left" /> */}
     </div>
   );
 };
@@ -108,7 +102,7 @@ const SlickArrowRight = ({
       aria-hidden="true"
       aria-disabled={currentSlide === (slideCount ?? 0) - 1}
     >
-      <Icon icon="bi:arrow-right" />
+      {/* <Icon icon="bi:arrow-right" /> */}
     </div>
   );
 };

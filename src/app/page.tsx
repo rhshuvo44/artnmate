@@ -7,7 +7,7 @@ import PortfolioSlider from "@/component/home/PortfolioSlider";
 import PostSlider from "@/component/home/PostSlider";
 import ServiceSection from "@/component/home/ServiceSection";
 import TeamSlider from "@/component/home/TeamSlider";
-import TestimonialSlider from "@/component/home/TestimonialSlider";
+import TestimonialSliderStyle2 from "@/component/home/TestimonialSliderStyle2";
 import TimelineSlider from "@/component/home/TimelineSlider";
 import VideoModal from "@/component/home/VideoModal";
 import Div from "@/component/ui/Div";
@@ -112,7 +112,8 @@ export default function Home() {
 
       {/* End Team Section */}
       {/* Start Testimonial Section */}
-      <TestimonialSlider />
+      {/* <TestimonialSlider /> */}
+      <TestimonialSliderStyle2 />
       {/* End Testimonial Section */}
       {/* Start Blog Section */}
       <Spacing lg="150" md="80" />

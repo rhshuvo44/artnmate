@@ -1,13 +1,11 @@
 "use client";
-import { Icon } from "@iconify/react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
+import type SlickSlider from "react-slick";
 import Div from "../ui/Div";
 import Spacing from "../ui/Spacing";
 import Testimonial from "./Testimonial";
-
-import type SlickSlider from "react-slick";
 const Slider = dynamic<any>(() => import("react-slick"), { ssr: false });
 interface SlickArrowProps extends React.HTMLAttributes<HTMLDivElement> {
   currentSlide?: number;
@@ -29,7 +27,7 @@ const SlickArrowLeft = ({
       aria-hidden="true"
       aria-disabled={currentSlide === 0}
     >
-      <Icon icon="bi:arrow-left" />
+      {/* <Icon icon="bi:arrow-left" /> */}
     </div>
   );
 };
@@ -51,11 +49,10 @@ const SlickArrowRight = ({
       aria-hidden="true"
       aria-disabled={currentSlide === (slideCount ?? 0) - 1}
     >
-      <Icon icon="bi:arrow-right" />
+      {/* <Icon icon="bi:arrow-right" /> */}
     </div>
   );
 };
-
 const testimonialData = [
   {
     testimonialThumb: "/images/testimonial_1.jpeg",
@@ -91,54 +88,56 @@ const testimonialData = [
   },
 ];
 
-export default function TestimonialSlider() {
+export default function TestimonialSliderStyle2() {
   const [nav1, setNav1] = useState<SlickSlider | null>(null);
   const [nav2, setNav2] = useState<SlickSlider | null>(null);
-
   return (
     <>
-      <Div className="cs-gradient_bg_1 cs-shape_wrap_3 cs-parallax">
-        <Spacing lg="130" md="80" />
-        <Div className="cs-shape_3 cs-to_up">
-          <Image
-            src="/images/shape_1.svg"
-            alt="Shape"
-            width={200}
-            height={200}
-          />
-        </Div>
-        <Div className="container">
-          <Div className="cs-testimonial_slider">
-            <Div className="cs-testimonial_slider_left">
-              <Slider
-                asNavFor={nav1 ?? undefined}
-                ref={(slider: SlickSlider | null) => {
-                  if (slider) setNav2(slider);
-                }}
-                slidesToShow={3}
-                swipeToSlide={true}
-                focusOnSelect={true}
-                centerMode={true}
-                centerPadding="0px"
-                arrows={false}
-              >
-                {testimonialData.map((item, index) => (
-                  <Div className="slider-nav_item" key={index}>
-                    <Div className="cs-rotate_img">
-                      <Div className="cs-rotate_img_in">
-                        <Image
-                          src={item.testimonialThumb}
-                          alt="Thumb"
-                          width={200}
-                          height={200}
-                        />
+      <Div className="cs-shape_wrap_3 cs-parallax">
+        <Div
+          className="cs-bg"
+          style={{ backgroundImage: `url(images/testimonial_bg.jpeg)` }}
+        >
+          <Spacing lg="130" md="80" />
+          <Div className="cs-shape_3 cs-to_up">
+            <Image
+              src="/images/shape_1.svg"
+              alt="Shape"
+              width={200}
+              height={200}
+            />
+          </Div>
+          <Div className="container">
+            <Div className="cs-testimonial_slider_2">
+              <Div className="cs-testimonial_slider_left">
+                <Slider
+                  asNavFor={nav1 ?? undefined}
+                  ref={(slider: SlickSlider | null) => {
+                    if (slider) setNav2(slider);
+                  }}
+                  slidesToShow={3}
+                  swipeToSlide={true}
+                  focusOnSelect={true}
+                  centerMode={true}
+                  centerPadding="0px"
+                  arrows={false}
+                >
+                  {testimonialData.map((item, index) => (
+                    <Div className="slider-nav_item" key={index}>
+                      <Div className="cs-rotate_img">
+                        <Div className="cs-rotate_img_in">
+                          <Image
+                            src={item.testimonialThumb}
+                            alt="Thumb"
+                            width={200}
+                            height={200}
+                          />
+                        </Div>
                       </Div>
                     </Div>
-                  </Div>
-                ))}
-              </Slider>
-            </Div>
-            <Div className="cs-testimonial_slider_right">
+                  ))}
+                </Slider>
+              </Div>
               <Slider
                 asNavFor={nav2}
                 ref={(slider1: SlickSlider | null) => setNav1(slider1)}
@@ -158,9 +157,13 @@ export default function TestimonialSlider() {
                 ))}
               </Slider>
             </Div>
+            <Div className="cs-testimonial_slider">
+              <Div className="cs-testimonial_slider_left"></Div>
+              <Div className="cs-testimonial_slider_right"></Div>
+            </Div>
           </Div>
+          <Spacing lg="130" md="80" />
         </Div>
-        <Spacing lg="130" md="80" />
       </Div>
     </>
   );
